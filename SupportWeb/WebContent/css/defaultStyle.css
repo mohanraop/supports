@@ -1,0 +1,50 @@
+body {
+	margin: 0px;
+	padding: 0;
+	color: #616161;
+	font-size: 0.9em;
+}
+
+.ui-widget {
+	font-size: 0.9em;
+	font-weight: normal;
+}
+
+.ui-datatable th {
+	font-size: 1.1em;
+	font-family:Segoe UI Semibold;
+	font-weight: normal;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 4px;
+	padding-left: 4px;
+}
+
+.ui-inputfield {
+	font-weight: normal;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+h:panelGrid {
+	vertical-align: middle;
+}
+
+.ui-selectonemenu {
+	vertical-align: top;
+	font-weight: normal;
+}
+
+.ui-datatable-data {
+	font-size: 0.9em;
+	font-family: Segoe UI;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-right: 2px;
+	padding-left: 2px;
+}
+
+.ui-button .ui-button-text {
+	line-height: 0.8;
+}
+

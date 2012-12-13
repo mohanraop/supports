@@ -1,0 +1,37 @@
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<ui:define name="title">Account Creation</ui:define>
+	<ui:define name="content">
+		<h:form id="accountCreation">
+			<p:messages id="messages" showDetail="true" showSummary="false"  />
+			<h:outputLabel value="Account Creation"  style="font-weight:bold;color:red"/>
+			<h:panelGrid columns="2" width="95%" border="1">
+				<h:panelGroup>
+					<h:panelGrid columns="4" >
+						<h:outputLabel value="Account Num:" />
+						<p:inputText id="actNum" value="#{accountCTBean.actNum}" size="50" required="true"  readonly="#{accountCTBean.readOnly}"/>
+						<h:outputLabel value="Account Holder Name:" />
+						<p:inputText id="actHldrName" value="#{accountCTBean.actHldrName}" size="50" required="true"  readonly="#{accountCTBean.readOnly}"/>
+						
+						<h:outputLabel value="Account Branch:" />
+						<p:inputText id="actBranch" value="#{accountCTBean.actBranch}" size="50" readonly="#{accountCTBean.readOnly}"/>
+						<h:outputLabel value="IFSC Code:" />
+						<p:inputText id="ifscCode" value="#{accountCTBean.ifscCode}" size="50" readonly="#{accountCTBean.readOnly}"/>
+					
+						<h:outputLabel value="Account Holder Address:" />
+						<p:inputTextarea rows="6" cols="33"   value="#{accountCTBean.actHldrAddr}"  readonly="#{accountCTBean.readOnly}"/>
+						<h:outputLabel value="Bank Address:" />
+						<p:inputTextarea rows="6" cols="33"   value="#{accountCTBean.bankAddr}"  readonly="#{accountCTBean.readOnly}"/>
+
+					</h:panelGrid>
+				</h:panelGroup>
+
+			</h:panelGrid>
+			<p:commandButton value="Save" action="#{accountCTBean.saveCreation}" disabled="#{accountCTBean.readOnly}"
+				update="messages" />
+		</h:form>
+	</ui:define>
+</ui:composition>

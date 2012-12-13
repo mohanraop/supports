@@ -1,0 +1,70 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+  <p:dialog widgetVar="movementDetailDialog" width="600" height="300" id="movementDetailDialog" header="Movement Detail">
+    <h:panelGrid columns="4" cellpadding="5">
+      <h:outputLabel value="Container Number:" />
+      <h:outputLabel
+        value="#{movementEventEditingBean.movementInDialog.containerNumber}-#{movementEventEditingBean.movementInDialog.containerCheckDigit}" />
+
+      <h:outputLabel value="Event Date:" />
+      <h:outputLabel value="#{movementEventEditingBean.movementInDialog.eventDateTime}" />
+
+      <h:outputLabel value="Facility:" />
+      <p:autoComplete id="facilityCode" value="#{movementEventEditingBean.movementInDialog.facilityCode}"
+        completeMethod="#{hierarchyBean.completeFacility}" maxResults="10" />
+
+      <h:outputLabel value="Load Empty:" />
+      <p:selectOneRadio value="#{movementEventEditingBean.movementInDialog.loadEmptyIndicator}">
+        <f:selectItems value="#{dropDownListBean.loadEmptyIndicators}" var="_loadEmptyIndicator"
+          itemLabel="#{_loadEmptyIndicator.description}" itemValue="#{_loadEmptyIndicator}" />
+      </p:selectOneRadio>
+
+      <h:outputLabel value="Seal Type:" />
+      <p:inputText value="#{movementEventEditingBean.movementInDialog.sealType}" />
+
+      <h:outputLabel value="Seal Number:" />
+      <p:inputText value="#{movementEventEditingBean.movementInDialog.sealNumber}" />
+
+      <h:outputLabel value="Load Port:" />
+      <p:inputText value="#{movementEventEditingBean.movementInDialog.loadPort}" />
+
+      <h:outputLabel value="Discharge Port:" />
+      <p:inputText value="#{movementEventEditingBean.movementInDialog.dischargePort}" />
+
+      <h:outputLabel value="Document Reference:" />
+      <p:inputText value="#{movementEventEditingBean.movementInDialog.documentReference}" />
+
+      <h:outputLabel value="Document Type:" />
+      <p:selectOneMenu value="#{movementEventEditingBean.movementInDialog.documentType}">
+        <f:selectItem itemLabel="-" noSelectionOption="true" />
+        <f:selectItems value="#{dropDownListBean.documentTypes}" var="_documentType" itemLabel="#{_documentType.description}"
+          itemValue="#{_documentType}" />
+      </p:selectOneMenu>
+
+      <h:outputLabel for="spinnerBasic" value="Gross Weight:" />
+      <h:panelGroup>
+        <h:panelGrid columns="2">
+          <p:spinner id="spinnerBasic" size="8" value="#{movementEventEditingBean.movementInDialog.grossWeight}" stepFactor="0.25" />
+          <p:selectOneMenu value="#{movementEventEditingBean.movementInDialog.grossWeightUnit}">
+            <f:selectItems value="#{dropDownListBean.weightUnits}" />
+          </p:selectOneMenu>
+        </h:panelGrid>
+      </h:panelGroup>
+
+      <h:outputLabel value="Remarks:" />
+      <p:inputTextarea value="#{movementEventEditingBean.movementInDialog.remarks}" />
+
+      <h:outputLabel value="Update User:" />
+      <h:outputLabel value="#{movementEventEditingBean.movementInDialog.updateUser}" />
+
+      <h:outputLabel value="Update Date:" />
+      <h:outputLabel value="#{movementEventEditingBean.movementInDialog.recordUpdateDateTime}" />
+    </h:panelGrid>
+
+    <f:facet name="footer">
+      <p:commandButton value="Save" actionListener="#{movementEventEditingBean.save}" oncomplete="if(args.saveSuccess)movementDetailDialog.hide();"
+        update="messages eventDataTable" />
+      <p:commandButton value="Cancel" onclick="movementDetailDialog.hide();" />
+    </f:facet>
+  </p:dialog>
+</ui:composition>

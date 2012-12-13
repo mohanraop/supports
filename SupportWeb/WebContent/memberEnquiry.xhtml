@@ -1,0 +1,28 @@
+<ui:composition template="template.xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui"
+  xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core">
+  <ui:define name="title">Member Enquiry</ui:define>
+  <ui:define name="content">
+    <h:form>
+      <p:dataTable var="member" value="#{memberEnqBean.contactDetails}" paginator="true" rows="20"
+        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+        rowsPerPageTemplate="20,30,50">
+        <p:column filterBy="#{member.name}" headerText="Name">
+          <h:outputText value="#{member.name}" />
+        </p:column>
+        <p:column filterBy="#{member.memType}" headerText="Member Type" filterMatchMode="exact">
+          <h:outputText value="#{member.memType}" />
+        </p:column>
+        <p:column filterBy="#{member.gmailID}" headerText="GmailID" filterMatchMode="contains">
+          <h:outputText value="#{member.gmailID}" />
+        </p:column>
+        <p:column filterBy="#{member.skypeID}" headerText="SkypeID" filterMatchMode="contains">
+          <h:outputText value="#{member.gmailID}" />
+        </p:column>
+        <p:column filterBy="#{member.mobileNum}" headerText="MobileNum" filterMatchMode="contains">
+          <h:outputText value="#{member.mobileNum}" />
+        </p:column>
+      </p:dataTable>
+    </h:form>
+  </ui:define>
+</ui:composition>

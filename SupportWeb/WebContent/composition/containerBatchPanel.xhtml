@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+  <p:panel>
+    <h:panelGrid columns="2">
+      <h:outputLabel value="Container No." />
+      <p:inputText id="containerNumber" value="#{equipmentCTBean.containerNumber}" size="10" />
+      <h:outputLabel value="Check digit" />
+      <p:inputText id="checkDigit" size="1" value="#{equipmentCTBean.containerCheckDigit}" />
+      <h:panelGrid columns="1">
+        <p:commandButton value="add" process="@this,containerNumber,checkDigit" action="#{equipmentCTBean.addContainer}"
+          update="containerNumberList, messages" />
+        <p:commandButton value="remove" process="@this" action="#{equipmentCTBean.removeContainer}" update="containerNumberList" />
+      </h:panelGrid>
+      <p:selectOneListbox id="containerNumberList" valueChangeListener="#{equipmentCTBean.containerSelectListener}" style="height:100px">
+        <f:selectItems value="#{equipmentCTBean.containerNumbers}" var="_containerNumber"
+          itemLabel="#{_containerNumber}" itemValue="#{_containerNumber}" />
+        <p:ajax event="change" valueChangeListener="#{equipmentCTBean.containerSelectListener}" />
+      </p:selectOneListbox>
+    </h:panelGrid>
+  </p:panel>
+</ui:composition>
