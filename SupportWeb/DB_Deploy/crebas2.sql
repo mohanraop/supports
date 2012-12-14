@@ -23,19 +23,19 @@ drop table if exists dbeqp.eqp_supply_hierarchy;
 /*==============================================================*/
 /* Table: SUP_PAYEMENT                                         */
 /*==============================================================*/
-CREATE TABLE SUP_PAYMENT (
+CREATE TABLE dbeqp.SUP_PAYMENT (
   SUP_PAYEMENT_id int(11) NOT NULL AUTO_INCREMENT,
   SUP_ACCOUNT_ID int(11) NOT NULL,
   PAYMENT_DATE datetime NOT NULL,
-  PAYMENT_TYPE varchar(4) NOT NULL,
+  PAYMENT_TYPE varchar(10) NOT NULL,
   CONTACT_ID int(11) NOT NULL,
   AMMOUNT double(11,4) NOT NULL,
   CURRENCY varchar(10) NOT NULL,
   CURRENCY_RATE double(11,4) NOT NULL,
   START_DATE datetime NOT NULL,
   END_DATE datetime NOT NULL,
-  CREATE_DT datetime NOT NULL,
-  UPDATE_DT datetime NOT NULL,
+  CREATE_DT datetime ,
+  UPDATE_DT datetime ,
   PRIMARY KEY (SUP_PAYEMENT_id)
 ) ;
 
@@ -44,7 +44,7 @@ CREATE TABLE SUP_PAYMENT (
 /* Table: SUP_ACCOUNT                                         */
 /*==============================================================*/
 
-CREATE TABLE SUP_ACCOUNT (
+CREATE TABLE dbeqp.SUP_ACCOUNT (
   SUP_ACCOUNT_id int(11) NOT NULL AUTO_INCREMENT,
   ACT_HLDR_NAME varchar(50) NOT NULL DEFAULT '',
   ACT_HLDR_ADDR varchar(300) NOT NULL DEFAULT '',
@@ -59,7 +59,7 @@ CREATE TABLE SUP_ACCOUNT (
 /*==============================================================*/
 /* Table: SUP_ASSIGN                                         */
 /*==============================================================*/
-CREATE TABLE SUP_ASSIGN (
+CREATE TABLE dbeqp.SUP_ASSIGN (
   SUP_ASSIGN_id int(11) NOT NULL AUTO_INCREMENT,
   TRAINER_ID int(11) NOT NULL,
   TRAINEE_ID int(11) NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE SUP_ASSIGN (
 /*==============================================================*/
 /* Table: SUP_CONTACT                                         */
 /*==============================================================*/
-CREATE TABLE SUP_CONTACT (
+CREATE TABLE dbeqp.SUP_CONTACT (
   SUP_CONTACT_id int(11) NOT NULL AUTO_INCREMENT,
   NAME varchar(100) NOT NULL DEFAULT '',
   MOBILE_NO varchar(15) DEFAULT NULL,
