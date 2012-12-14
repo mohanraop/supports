@@ -15,13 +15,13 @@ import support.domain.entity.AssignDetails;
 import support.domain.entity.ContactDetail;
 
 
-@Service("ContactService")
+@Service("contactService")
 @Transactional
 public class ContactServiceImpl implements ContactService {
-	@Resource(name = "ContactDao")
+	@Resource(name = "contactDao")
 	private ContactDao contactDao;
 	
-	@Resource(name = "AssignDao")
+	@Resource(name = "assignDao")
 	private AssignDao assignDao; 
 
 	@Override
@@ -63,6 +63,11 @@ public class ContactServiceImpl implements ContactService {
 	@Override
 	public void saveAssignment(AssignDetails assignDetails) {
 		assignDao.save(assignDetails);
+	}
+
+	@Override
+	public List<ContactDetail> findAll() {
+		return contactDao.findAll();
 	}
 
 	

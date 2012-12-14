@@ -18,6 +18,8 @@ public interface ContactService {
 	List<ContactDetail> findTrainees();
 	
 	List<ContactDetail> findTrainers();
+	
+	List<ContactDetail> findAll();
 
 	void saveAssignment(AssignDetails assignDetails);
 }
