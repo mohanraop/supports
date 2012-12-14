@@ -35,7 +35,7 @@ public class MemberAssignBean extends AbstractManagedBean  {
 	
 	private boolean readOnly=false;
 	
-	@Resource(name="ContactService")
+	@Resource(name="contactService")
 	private ContactService contactService;
 
 	
