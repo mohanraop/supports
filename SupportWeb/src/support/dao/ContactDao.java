@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import support.domain.entity.ContactDetail;
 
-@Repository("ContactDao")
+@Repository("contactDao")
 public class ContactDao extends AbstractBaseDao {
 
   @Override

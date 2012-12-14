@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import support.domain.entity.ContactDetail;
 
-@Repository("AssignDao")
+@Repository("assignDao")
 public class AssignDao extends AbstractBaseDao {
 
   @Override
