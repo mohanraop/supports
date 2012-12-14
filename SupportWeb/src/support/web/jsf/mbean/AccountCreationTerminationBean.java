@@ -27,7 +27,7 @@ public class AccountCreationTerminationBean extends AbstractManagedBean {
 	private Date updateDateTime;
 	private boolean readOnly = false;
 
-	@Resource(name = "AccountService")
+	@Resource(name = "accountService")
 	private AccountService accountService;
 
 	public void saveCreation() {
