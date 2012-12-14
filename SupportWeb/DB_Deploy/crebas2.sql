@@ -19,6 +19,27 @@ drop table if exists dbeqp.eqp_rejection;
 drop table if exists dbeqp.container;
 
 drop table if exists dbeqp.eqp_supply_hierarchy;
+
+/*==============================================================*/
+/* Table: SUP_PAYEMENT                                         */
+/*==============================================================*/
+CREATE TABLE SUP_PAYMENT (
+  SUP_PAYEMENT_id int(11) NOT NULL AUTO_INCREMENT,
+  SUP_ACCOUNT_ID int(11) NOT NULL,
+  PAYMENT_DATE datetime NOT NULL,
+  PAYMENT_TYPE varchar(4) NOT NULL,
+  CONTACT_ID int(11) NOT NULL,
+  AMMOUNT double(11,4) NOT NULL,
+  CURRENCY varchar(10) NOT NULL,
+  CURRENCY_RATE double(11,4) NOT NULL,
+  START_DATE datetime NOT NULL,
+  END_DATE datetime NOT NULL,
+  CREATE_DT datetime NOT NULL,
+  UPDATE_DT datetime NOT NULL,
+  PRIMARY KEY (SUP_PAYEMENT_id)
+) ;
+
+
 /*==============================================================*/
 /* Table: SUP_ACCOUNT                                         */
 /*==============================================================*/
