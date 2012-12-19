@@ -24,7 +24,7 @@
         				  </p:selectOneMenu>
         				  
 						<h:outputLabel value="Ammount:" />
-						<p:inputText id="ammount" value="#{memberPaymentBean.ammount}" size="50" required="true"  readonly="#{memberPaymentBean.readOnly}" type="java.lang.Double"/>
+						<p:inputText id="ammount" value="#{memberPaymentBean.ammount}" size="20" required="true"  readonly="#{memberPaymentBean.readOnly}" type="java.lang.Double"/>
 						<h:outputLabel value="Credit/Debit :" />
 						<p:selectOneMenu value="#{memberPaymentBean.paymentType}" id="paymentType" required="true" rendered="#{!memberPaymentBean.readOnly}">
 							<f:selectItem itemLabel="Credit" itemValue="Credit" />
@@ -37,7 +37,7 @@
 							<f:selectItem itemLabel="USD" itemValue="USD" />
 						</p:selectOneMenu>
 						<h:outputLabel value="Currency Rate:" />
-						<p:inputText id="currencyRate" value="#{memberPaymentBean.currencyRate}" size="50" required="true"  readonly="#{memberPaymentBean.readOnly}" type="java.lang.Double"/>
+						<p:inputText id="currencyRate" value="#{memberPaymentBean.currencyRate}" size="20" required="true"  readonly="#{memberPaymentBean.readOnly}" type="java.lang.Double"/>
 						
 						<h:outputLabel value="Start Date:" />
 						<p:calendar id="startDate" widget="startDate"
