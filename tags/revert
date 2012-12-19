@@ -1,0 +1,64 @@
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<ui:define name="title">Member Payment</ui:define>
+	<ui:define name="content">
+		<h:form id="memberCreation">
+		 <p:growl id="msg" /> 
+			<p:messages id="messages" showDetail="true" showSummary="false"  />
+			<h:outputLabel value="Member Creation"  style="font-weight:bold;color:red"/>
+			<h:panelGrid columns="2" width="95%" border="1" >
+				<h:panelGroup>
+					<h:panelGrid columns="4"  >
+						<h:outputLabel value="Member:" />
+						 <p:selectOneMenu value="#{memberPaymentBean.memberId}" required="true" rendered="#{!memberPaymentBean.readOnly}">
+        					<f:selectItems value="#{memberPaymentBean.members}" var="_eventType" itemLabel="#{_eventType.name}"
+         							     itemValue="#{_eventType.id}" />
+        				  </p:selectOneMenu>
+						<h:outputLabel value="Payment Account:" />
+						 <p:selectOneMenu value="#{memberPaymentBean.accountId}" required="true" rendered="#{!memberPaymentBean.readOnly}">
+        					<f:selectItems value="#{memberPaymentBean.accounts}" var="_eventType" itemLabel="#{_eventType.name}"
+         							     itemValue="#{_eventType.id}" />
+        				  </p:selectOneMenu>
+        				  
+						<h:outputLabel value="Ammount:" />
+						<p:inputText id="ammount" value="#{memberPaymentBean.ammount}" size="20" required="true"  readonly="#{memberPaymentBean.readOnly}" type="java.lang.Double"/>
+						<h:outputLabel value="Credit/Debit :" />
+						<p:selectOneMenu value="#{memberPaymentBean.paymentType}" id="paymentType" required="true" rendered="#{!memberPaymentBean.readOnly}">
+							<f:selectItem itemLabel="Credit" itemValue="Credit" />
+							<f:selectItem itemLabel="Debit" itemValue="Debit" />
+						</p:selectOneMenu>
+						
+					   <h:outputLabel value="Currency:" />
+						<p:selectOneMenu value="#{memberPaymentBean.currency}" id="currency" required="true" rendered="#{!memberPaymentBean.readOnly}">
+							<f:selectItem itemLabel="INR" itemValue="INR" />
+							<f:selectItem itemLabel="USD" itemValue="USD" />
+						</p:selectOneMenu>
+						<h:outputLabel value="Currency Rate:" />
+						<p:inputText id="currencyRate" value="#{memberPaymentBean.currencyRate}" size="20" required="true"  readonly="#{memberPaymentBean.readOnly}" type="java.lang.Double"/>
+						
+						<h:outputLabel value="Start Date:" />
+						<p:calendar id="startDate" widget="startDate"
+							value="#{memberPaymentBean.startDate}"
+							pattern="MM/dd/yyyy" required="true" readonly="#{memberPaymentBean.readOnly}" />
+						<h:outputLabel value="End Date:" />
+						<p:calendar id="endDate" widget="endDate"
+							value="#{memberPaymentBean.endDate}" 
+							pattern="MM/dd/yyyy" required="true" readonly="#{memberPaymentBean.readOnly}" />
+							
+						<h:outputLabel value="Payment Date:" />
+						<p:calendar id="paymentDate" widget="paymentDate"
+							value="#{memberPaymentBean.paymentDate}" 
+							pattern="MM/dd/yyyy" required="true" readonly="#{memberPaymentBean.readOnly}" />	
+					</h:panelGrid>
+				</h:panelGroup>
+
+			</h:panelGrid>
+			<p:commandButton value="submit" action="#{memberPaymentBean.savePayment}" disabled="#{memberPaymentBean.readOnly}"
+				update="messages" />
+				
+		</h:form>
+	</ui:define>
+</ui:composition>
