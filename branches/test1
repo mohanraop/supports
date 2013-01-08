@@ -11,5 +11,9 @@ public class AccountDao extends AbstractBaseDao {
   public Class<?> getDomainClass() {
     return AccountDetails.class;
   }
+  
+  public void fun(){
+	  
+  }
 
 }
