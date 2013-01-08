@@ -15,5 +15,10 @@ public class AccountDao extends AbstractBaseDao {
   public void fun(){
 	  
   }
+  
+ public void fun1(){
+	  
+  }
+
 
 }
