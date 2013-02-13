@@ -23,7 +23,7 @@
   <authentication-manager>
     <authentication-provider>
       <user-service id="inMemoryDao">
-        <user name="mohan" password="mohanp" authorities="user"></user>
+        <user name="kranthi" password="kranthi" authorities="user"></user>
       </user-service>
     </authentication-provider>
   </authentication-manager>
