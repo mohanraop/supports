@@ -278,4 +278,14 @@ alter table dbeqp.EQP_LATEST_INFO add constraint FK_Reference_2 foreign key (EQM
 
 alter table dbeqp.EQP_REJECTION_DTL add constraint FK_Reference_5 foreign key (EVENT_TIMESTAMP)
       references dbeqp.EQP_REJECTION (EVENT_TIMESTAMP) on delete restrict on update restrict;
+      
+ CREATE TABLE `sup_transaction` (
+	`SUP_TRANSACTION_id` INT(11) NOT NULL AUTO_INCREMENT,
+	`SUP_ACCOUNT_ID` INT(11) NOT NULL,
+	`AMOUNT` VARCHAR(300) NOT NULL DEFAULT '',
+	`OPERATION` VARCHAR(50) NOT NULL DEFAULT '',
+	`CREATE_DT` DATETIME NULL DEFAULT NULL,
+	`UPDATE_DT` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`SUP_TRANSACTION_id`)
+);
 
