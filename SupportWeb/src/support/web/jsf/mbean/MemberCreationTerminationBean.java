@@ -30,7 +30,7 @@ public class MemberCreationTerminationBean extends AbstractManagedBean {
 	private boolean readOnly=false;
 
 
-	@Resource(name = "ContactService")
+	@Resource(name = "contactService")
 	private ContactService contactService;
 
 	public void saveCreation() {

@@ -14,9 +14,11 @@ import org.springframework.stereotype.Component;
 import support.domain.entity.AccountDetails;
 import support.domain.entity.ContactDetail;
 import support.domain.entity.PaymentDetails;
+import support.domain.entity.TransactionDetails;
 import support.service.AccountService;
 import support.service.ContactService;
 import support.service.PaymentService;
+import support.service.TransactionService;
 
 @Component("memberPaymentBean")
 @Scope("request")
@@ -56,6 +58,10 @@ public class MemberPaymentBean extends AbstractManagedBean  {
 	
 	@Resource(name="paymentService")
 	private PaymentService paymentService; 
+	
+	@Resource(name = "transactionService")
+	private TransactionService transactionService;
+
 	
 
 	public Collection<SelectItem> getMembers(){
@@ -98,7 +104,15 @@ public class MemberPaymentBean extends AbstractManagedBean  {
 			paymentDetails.setCurrencyRate(getCurrencyRate());
 		paymentDetails.setCreateDateTime(new Date());
 		paymentService.savePayment(paymentDetails);
-        addInfoMessage("Assignment  was successfully created.");
+		TransactionDetails transactionDetails = new TransactionDetails(); 
+		AccountDetails accountDetails = new AccountDetails();
+		accountDetails.setId(""+getAccountId());
+		transactionDetails.setAccountDetails(accountDetails);
+		transactionDetails.setCreateDateTime(new Date());
+		transactionDetails.setOperation(getPaymentType());
+		transactionDetails.setAmount(getAmmount().toString());
+		transactionService.create(transactionDetails);
+        addInfoMessage("Payment completed.");
 		readOnly=true;
 	}
 

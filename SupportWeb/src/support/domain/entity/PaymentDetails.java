@@ -38,10 +38,10 @@ public class PaymentDetails {
 	@Column(name = "CURRENCY_RATE")
 	private Double currencyRate;
 	
-	@Column(name = "START_DT")
+	@Column(name = "START_DATE")
 	private Date startDate;
 
-	@Column(name = "END_DT")
+	@Column(name = "END_DATE")
 	private Date endDate;
 	
 	@Column(name = "CREATE_DT")
