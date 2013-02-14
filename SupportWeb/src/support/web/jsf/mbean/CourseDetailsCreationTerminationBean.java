@@ -7,11 +7,9 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import support.domain.entity.AccountDetails;
 import support.domain.entity.CourseDetails;
-import support.service.AccountService;
+import support.mail.MailerService;
 import support.service.CourseDetailsService;
-import support.service.TransactionService;
 
 @Component("courseDetailsCTBean")
 @Scope("view")
@@ -27,6 +25,9 @@ public class CourseDetailsCreationTerminationBean extends AbstractManagedBean {
 	private Date createDateTime;
 	private Date updateDateTime;
 	private boolean readOnly = false;
+	
+	@Resource(name="mailerService")
+	private MailerService mailerService;
 
 
 	@Resource(name = "courseDetailsService")
@@ -38,6 +39,14 @@ public class CourseDetailsCreationTerminationBean extends AbstractManagedBean {
 		courseDetailsService.create(courseDetails);
 		addInfoMessage("Course : " + getCourseNam()
 				+ " was successfully created.");
+
+		MailBean mailBean = new MailBean();
+		mailBean.setToAddress("kranthikc8@gmail.com");
+		mailBean.setSubject("Course : " + getCourseNam());
+		mailBean.setMessageTxt("Course : " + getCourseNam()
+				+ " was successfully created.");
+		
+		mailerService.sendMail(mailBean);
 		readOnly = true;
 	}
 

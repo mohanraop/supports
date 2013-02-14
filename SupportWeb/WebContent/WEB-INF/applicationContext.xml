@@ -19,6 +19,7 @@
 	<context:component-scan base-package="support.dao" />
 	<context:component-scan base-package="support.web.jsf.mbean" />
 	<context:component-scan base-package="support.validation" />
+	<context:component-scan base-package="support.mail" />
 
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -64,6 +65,18 @@
 					<bean class="support.utils.ViewScope" />
 				</entry>
 			</map>
+		</property>
+	</bean>
+	
+	<bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="mohanrao360@gmail.com" />
+		<property name="password" value="mohan123" />
+		<property name="javaMailProperties">
+		<props>
+			<prop key="mail.smtp.starttls.enable">true</prop>
+		</props>
 		</property>
 	</bean>
 </beans>
