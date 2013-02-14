@@ -1,0 +1,29 @@
+<ui:composition template="template.xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui"
+  xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core">
+  <ui:define name="title">Course Details Enquiry</ui:define>
+  <ui:define name="content">
+    <h:form>
+      <p:dataTable var="course" value="#{courseDetailsEnqBean.courseDetails}" paginator="true" rows="20"
+        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+        rowsPerPageTemplate="20,30,50">
+        
+        <p:column filterBy="#{course.courseName}" headerText="Course Name" filterMatchMode="exact">
+          <h:outputText value="#{course.courseName}" />
+        </p:column>
+              <p:column filterBy="#{course.courseDetails}" headerText="Course Details" filterMatchMode="contains">
+          <h:outputText value="#{course.courseDetails}" />
+        </p:column>
+        <p:column filterBy="#{course.courseDuration}" headerText="Course Duration" filterMatchMode="contains">
+          <h:outputText value="#{course.courseDuration}" />
+        </p:column>
+        <p:column filterBy="#{course.courseAmount}" headerText="Course Amount" filterMatchMode="contains">
+          <h:outputText value="#{course.courseAmount}" />
+        </p:column>
+         <p:column filterBy="#{course.createDateTime}" headerText="Created Date" filterMatchMode="contains">
+          <h:outputText value="#{course.createDateTime}" />
+        </p:column>
+      </p:dataTable>
+    </h:form>
+  </ui:define>
+</ui:composition>
