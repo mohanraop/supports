@@ -10,6 +10,7 @@ public class AccountDao extends AbstractBaseDao {
   @Override
   public Class<?> getDomainClass() {
     return AccountDetails.class;
+    ///
   }
 
 }
