@@ -5,13 +5,15 @@
 
 <hibernate-mapping package="support.training.hibernate.bean">
 
+
 	<class name="Student1" table="student1">
-		<id name="sid" column="sid">
+		<id name="sid" column="id">
 			<generator class="native" />
 		</id>
 		<property name="st_name" column="st_name"></property>
 		<property name="st_class" column="st_class"></property>
 		<property name="st_sub1" column="st_sub1"></property>
 	</class>
+    
 
 </hibernate-mapping>

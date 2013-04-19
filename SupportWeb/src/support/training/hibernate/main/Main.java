@@ -14,13 +14,10 @@ public class Main {
 	public static void main(String[] args) {
 		
 		try{
-			SessionFactory sessionFactory = new Configuration().configure(
-			"/hibernate.cfg.xml")
-			.buildSessionFactory();
+			SessionFactory sessionFactory = new Configuration().configure("/hibernate.cfg.xml").buildSessionFactory();
 			Session session =  sessionFactory.getCurrentSession();
 			
 			Transaction transaction =  session.beginTransaction();
-			
 			Worker worker  = new Worker();
 			worker.setFirst_name("raju");
 			worker.setLast_name("rao");
@@ -32,11 +29,10 @@ public class Main {
 			student1.setSt_class("PUC");
 			student1.setSt_sub1("Maths");
 			session.save(student1);
-			
 			session.saveOrUpdate(student1);
 			
 			session.update(student1);
-			
+						
 			transaction.commit();
 			
 		}catch (Exception e) {
