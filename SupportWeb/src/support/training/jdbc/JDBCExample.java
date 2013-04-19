@@ -1,4 +1,4 @@
-package support.training;
+package support.training.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

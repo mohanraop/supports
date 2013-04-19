@@ -6,14 +6,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Jdbcexample {
+public class Jdbcexample2 {
 	
 	 Connection con = null;
 	 
 	 Statement stmt= null;
 	
 	public static void main(String[] args) {
-		Jdbcexample example = new Jdbcexample();
+		Jdbcexample2 example = new Jdbcexample2();
 		example.createConnection();
 		example.insertStudent();
 			

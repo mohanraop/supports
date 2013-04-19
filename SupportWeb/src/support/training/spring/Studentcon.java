@@ -1,4 +1,4 @@
-package support.training;
+package support.training.spring;
 
 public class Studentcon {
 	String id = null;

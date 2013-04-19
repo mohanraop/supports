@@ -1,4 +1,5 @@
-package support.training;
+package support.training.spring;
+
 
 public class SetterMessage {
 	private String message = null;

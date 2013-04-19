@@ -17,21 +17,21 @@
     <context:annotation-config />
 	<context:component-scan base-package="support.training" />
 
-	<bean id="constructorMessage" class="support.training.ConstructorMessage">
+	<bean id="constructorMessage" class="support.training.spring.ConstructorMessage">
 		<constructor-arg name="message" value="Hello World"></constructor-arg>
 	</bean>
 	
-	<bean id="setterMessage" class="support.training.SetterMessage">
+	<bean id="setterMessage" class="support.training.spring.SetterMessage">
 		<property name="message" value="Hi Setter"></property>
 		<property name="conMessage" ref="constructorMessage"></property>
 	</bean>
 	
-	<bean id="studentset" class="support.training.Studentset">
+	<bean id="studentset" class="support.training.spring.Studentset">
 		<property name="name" value= " hello "></property>
 	</bean>
 	
 	
-	<bean id="studentcon" class="support.training.Studentcon">
+	<bean id="studentcon" class="support.training.spring.Studentcon">
 		<constructor-arg name="id" value="123"></constructor-arg>
 	</bean>
 </beans>

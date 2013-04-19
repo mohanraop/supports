@@ -1,4 +1,4 @@
-package support.training;
+package support.training.spring;
 
 public class Studentset {
 	public String name = null;

@@ -2,6 +2,7 @@ package support.training.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,6 +16,7 @@ public class JDBCProgram {
 	// String url= "jdbc:mySubprotocol:myDataSource"; ?
 	static Statement stmt;
 	static Connection con;
+	static PreparedStatement pstmt;
 
 	public static void main(String args[]){
 
@@ -44,6 +46,9 @@ public class JDBCProgram {
 						+ "7. Retrieve data for Employees Table\n"
 						+ "8.  Retrieve data for Orders Table\n"
 						+"9. Retrieve data for Products Table\n"
+						+"10. Update data for Employees Table\n"
+						+"11. prepareUpdate data for Employees Table\n"
+						+"12. prepareUpdate data for Orders Table\n"
 						+ "0. Exit\n\n" + "Enter your choice");
 		ch = Integer.parseInt(choice);
 		return ch;
@@ -97,7 +102,54 @@ public class JDBCProgram {
 		if (choice == 9) {
 			retrieveProducts();
 		}
+		if (choice == 10) {
+			updateEmployees();
+		}
+		if (choice == 11) {
+			updateEmployeesPrepared();
+		}
+		if (choice == 12){
+			updateOrdersPrepared();
+		}
 	}
+	public static void updateEmployeesPrepared(){
+		Connection con = getConnection();
+// create prepared statement
+		try {
+	pstmt = con.prepareStatement("update Employees set name = ? where Employee_Id  = ?");
+	pstmt.setString(1, "hemanthbob");	//Note index starts with 1
+	pstmt.setInt(2, 2656);
+
+	   		pstmt.executeUpdate();
+
+			pstmt.close();
+			con.close();
+
+		} catch(SQLException ex) {
+		   System.err.println("SQLException: " + ex.getMessage());
+		}
+	JOptionPane.showMessageDialog(null,"Data Updated into Employees Table after prepared statement");
+	}
+
+	private static void updateEmployees() {
+		Connection con = getConnection();
+
+		String updateString1;
+		updateString1 = "update Employees set name = 'hemanthbalaji' where Employee_id = 2656";
+
+		try {
+			stmt = con.createStatement();
+	   		stmt.executeUpdate(updateString1);
+
+			stmt.close();
+			con.close();
+
+		} catch(SQLException ex) {
+			System.err.println("SQLException: " + ex.getMessage());
+		}
+	JOptionPane.showMessageDialog(null,"Data Updated into Employees Table");
+	}
+
 	public static Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");	
@@ -330,6 +382,28 @@ public class JDBCProgram {
 		}
 		JOptionPane.showMessageDialog(null, result);
 	}
-}
+	public static void updateOrdersPrepared(){
 
+		int [] productIds = {543, 432, 876};
+		String [] productNames = {"cds", "dvds", "Espresso"};
+		int len = productNames.length;
 
+		Connection con = getConnection();
+
+		try {
+	pstmt = con.prepareStatement("update Orders set ProductName = ? where Prod_Id  = ?");
+			for(int i = 0; i < len; i++) {
+				pstmt.setInt(2, productIds[i]);
+				pstmt.setString(1, productNames[i]);
+				pstmt.executeUpdate();
+			}
+
+			pstmt.close();
+			con.close();
+
+		} catch(SQLException ex) {
+			System.err.println("SQLException: " + ex.getMessage());
+		}
+	JOptionPane.showMessageDialog(null,"Data Updated into Orders Table");
+	}
+}// End of class

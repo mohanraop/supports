@@ -1,4 +1,4 @@
-package support.training;
+package support.training.spring;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
