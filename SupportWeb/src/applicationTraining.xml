@@ -21,6 +21,26 @@
 		<constructor-arg name="message" value="Hello World"></constructor-arg>
 	</bean>
 	
+	<bean id="student" class="support.training.spring.Student">
+	  <property name="sname" value="madhu"></property>
+	  <property name="sno"  value="57"></property>
+	  <constructor-arg name="cname" value="section A"></constructor-arg>
+	</bean>
+	
+	<bean id="plist" class="support.training.spring.PList">
+	<property name="PA" ref="project1"></property>
+	<property name="PB" ref="project2"></property>
+	</bean>
+	
+	<bean id="project1" class="support.training.spring.Project">
+	    <property name="pname" value="First Project"></property>
+	    <property name="pduration" value="6"></property>
+	</bean>
+	
+	<bean id="project2" class="support.training.spring.Project">
+	<property name="pname" value="Second Project"></property>
+	    <property name="pduration" value="10"></property>
+	</bean>
 	<bean id="setterMessage" class="support.training.spring.SetterMessage">
 		<property name="message" value="Hi Setter"></property>
 		<property name="conMessage" ref="constructorMessage"></property>
