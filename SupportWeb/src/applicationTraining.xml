@@ -13,6 +13,9 @@
       http://www.springframework.org/schema/context/spring-context-3.1.xsd
       http://www.springframework.org/schema/jee
       http://www.springframework.org/schema/jee/spring-jee-3.1.xsd">
+      
+    <context:annotation-config />
+	<context:component-scan base-package="support.training" />
 
 	<bean id="constructorMessage" class="support.training.ConstructorMessage">
 		<constructor-arg name="message" value="Hello World"></constructor-arg>

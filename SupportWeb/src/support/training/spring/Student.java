@@ -1,9 +1,9 @@
-package support.service;
+package support.training.spring;
 
 import javax.annotation.Resource;
 
-import org.springframework.stereotype.Repository;
-@Resource(name="Register")
+import org.springframework.stereotype.Service;
+@Service("student")
 public class Student {
 	public String sname;
    
@@ -21,7 +21,6 @@ public class Student {
 	 public void setSno(int sno) {
 			this.sno = sno;
 		}
-@Resource(name="Register")
     public void result()
     {
     	System.out.println("Student name is" +getSname()+ "\n Student roll no : " +getSno());
