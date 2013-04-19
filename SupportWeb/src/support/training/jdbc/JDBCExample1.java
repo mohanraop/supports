@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class JDBCExample1 {
 	
-	static Connection connect = null;
+	static Connection connect=null;
 	 
 	 Statement stmt1= null;
 	
@@ -21,7 +21,7 @@ public class JDBCExample1 {
 			}
 			
 			 try {
-				  Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbeqp", "root", "root");
+				   connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbeqp", "root", "root");
 				   System.out.println("2.Connection of get connection established");
 				} catch(SQLException ex) {
 					System.err.println("SQLException: " + ex.getMessage());
