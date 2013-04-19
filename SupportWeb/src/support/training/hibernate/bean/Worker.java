@@ -2,7 +2,7 @@ package support.training.hibernate.bean;
 
 public class Worker {
 	
-	private Integer id;
+	private Integer id; 
 	
 	private String first_name;
 	

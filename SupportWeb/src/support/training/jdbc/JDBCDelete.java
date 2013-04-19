@@ -1,4 +1,3 @@
-
 package support.training.jdbc;
 
 import java.sql.Connection;
@@ -6,18 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Jdbcexample {
-	
-	 Connection con = null;
+public class JDBCDelete {
+	Connection connect = null;
 	 
-	 Statement stmt= null;
-	
-	public static void main(String[] args) {
-		Jdbcexample example = new Jdbcexample();
-		example.createConnection();
-		example.insertStudent();
-			
-	}
+	 Statement stmt1= null;
 	
 	public void createConnection(){
 		try {
@@ -29,7 +20,7 @@ public class Jdbcexample {
 		}
 		
 		 try {
-			   con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbeqp", "root", "root");
+			   connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbeqp", "root", "root");
 			   System.out.println("2.Connection established");
 			} catch(SQLException ex) {
 				System.err.println("SQLException: " + ex.getMessage());
@@ -40,30 +31,28 @@ public class Jdbcexample {
 	
 	
 	
-	public void insertStudent(){
-		String insertString1, insertString2, insertString3;
-		insertString1 = "insert into Student values('section1',30,15,15)";
-		insertString2 = "insert into Student values('section2',40,20,20)";
-		insertString3 = "insert into Student values('section3',50,25,25)";
+	public void Section(){
+		String deletestring;
+		deletestring = "delete from section where name='s1'";
 		
 		System.out.println("Stament created");
 		try {
-			stmt = con.createStatement();
-	   		stmt.executeUpdate(insertString1);
-	   		stmt.executeUpdate(insertString2);
-	   		stmt.executeUpdate(insertString3);
-	   		
+			stmt1 = connect.createStatement();
+	   		stmt1.executeUpdate(deletestring);
 	   		System.out.println("4.execute statement");
-
-			stmt.close();
-			con.close();
+			stmt1.close();
+			connect.close();
 			System.out.println("5.close connection");
 
 		} catch(SQLException ex) {
 			System.err.println("SQLException: " + ex.getMessage());
 		}
 	}
-
-	
-	
+	public static void main(String[] args) {
+		JDBCDelete example = new JDBCDelete();
+		example.createConnection();
+		example.Section();
+		}
 }
+
+
