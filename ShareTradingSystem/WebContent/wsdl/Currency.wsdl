@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.ws.train.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.ws.train.com" xmlns:intf="http://service.ws.train.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.ws.train.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getCountry">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCountryResponse">
+    <complexType>
+     <sequence>
+      <element name="getCountryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getCountryResponse">
+
+      <wsdl:part element="impl:getCountryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCountryRequest">
+
+      <wsdl:part element="impl:getCountry" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Currency">
+
+      <wsdl:operation name="getCountry">
+
+         <wsdl:input message="impl:getCountryRequest" name="getCountryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCountryResponse" name="getCountryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CurrencySoapBinding" type="impl:Currency">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getCountry">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCountryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCountryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CurrencyService">
+
+      <wsdl:port binding="impl:CurrencySoapBinding" name="Currency">
+
+         <wsdlsoap:address location="http://localhost:8080/ShareTradingSystem/services/Currency"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
