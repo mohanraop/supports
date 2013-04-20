@@ -1,3 +1,11 @@
-#Sun Jan 01 13:56:59 CST 2012
+#Sat Apr 20 00:30:35 CDT 2013
 eclipse.preferences.version=1
 encoding//WebContent/movementEventEditing.xhtml=UTF-8
+encoding//src/com/train/ws/service/Currency.java=UTF-8
+encoding//src/com/train/ws/service/CurrencyService.java=UTF-8
+encoding//src/com/train/ws/service/CurrencyServiceLocator.java=UTF-8
+encoding//src/com/train/ws/service/CurrencySoapBindingStub.java=UTF-8
+encoding//src/com/train/ws/service/ShareInfromation.java=UTF-8
+encoding//src/com/train/ws/service/ShareInfromationService.java=UTF-8
+encoding//src/com/train/ws/service/ShareInfromationServiceLocator.java=UTF-8
+encoding//src/com/train/ws/service/ShareInfromationSoapBindingStub.java=UTF-8
