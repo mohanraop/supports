@@ -59,9 +59,23 @@
   <ns1:parameter name="allowedMethods" value="getVersion"/>
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
+ <ns1:service name="Sharebuy" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="getShare" qname="ns3:getShare" returnQName="ns3:getShareReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://service.ws.train.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:shareName" type="xsd:string"/>
+   <ns1:parameter qname="ns3:shareqntity" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="getShare"/>
+  <ns1:parameter name="wsdlPortType" value="Sharebuy"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://service.ws.train.com"/>
+  <ns1:parameter name="wsdlServicePort" value="Sharebuy"/>
+  <ns1:parameter name="className" value="com.train.ws.service.Sharebuy"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://service.ws.train.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="SharebuyService"/>
+ </ns1:service>
  <ns1:service name="Currency" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="getCountry" qname="ns3:getCountry" returnQName="ns3:getCountryReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://service.ws.train.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns3:name" type="xsd:string"/>
+  <ns1:operation name="getCountry" qname="ns4:getCountry" returnQName="ns4:getCountryReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://service.ws.train.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:name" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="getCountry"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
