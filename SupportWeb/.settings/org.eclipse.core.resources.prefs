@@ -1,4 +1,4 @@
-#Sat Apr 20 00:30:35 CDT 2013
+#Sat Apr 20 19:32:59 CDT 2013
 eclipse.preferences.version=1
 encoding//WebContent/movementEventEditing.xhtml=UTF-8
 encoding//src/com/train/ws/service/Currency.java=UTF-8
@@ -9,3 +9,7 @@ encoding//src/com/train/ws/service/ShareInfromation.java=UTF-8
 encoding//src/com/train/ws/service/ShareInfromationService.java=UTF-8
 encoding//src/com/train/ws/service/ShareInfromationServiceLocator.java=UTF-8
 encoding//src/com/train/ws/service/ShareInfromationSoapBindingStub.java=UTF-8
+encoding//src/com/train/ws/service/Sharebuy.java=UTF-8
+encoding//src/com/train/ws/service/SharebuyService.java=UTF-8
+encoding//src/com/train/ws/service/SharebuyServiceLocator.java=UTF-8
+encoding//src/com/train/ws/service/SharebuySoapBindingStub.java=UTF-8

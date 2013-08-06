@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="support.training.hibernate.bean">
+<class name="Shares" table="shares">
+		<id name="share_id" column="share_id">
+			<generator class="native" />
+		</id>
+		<property name="share_name" column="share_name"></property>
+		<property name="share_price" column="share_price"></property>
+		<property name="s_quantity" column="s_quantity"></property>
+	</class>
+</hibernate-mapping>

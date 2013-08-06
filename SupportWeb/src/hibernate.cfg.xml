@@ -16,10 +16,11 @@
 		<property name="show_sql">true</property>
 		<property name="hbm2ddl.auto">validate</property>
 		
-		 <mapping resource="support/training/hibernate/bean/Worker.hbm.xml"/> 
+		  <!-- <mapping resource="support/training/hibernate/bean/Worker.hbm.xml"/> 
 		  <mapping resource="support/training/hibernate/bean/student1.hbm.xml"/>
 		    <mapping resource="support/training/hibernate/bean/UserDetails.hbm.xml"/>
-		    <mapping resource="support/training/hibernate/bean/Customer.hbm.xml"/>
+		    <mapping resource="support/training/hibernate/bean/Customer.hbm.xml"/>  -->
+		    <mapping resource="support/training/hibernate/bean/Shares.hbm.xml"/>
 
 	</session-factory>
 </hibernate-configuration>

@@ -16,7 +16,33 @@
       
     <context:annotation-config />
 	<context:component-scan base-package="support.training" />
-
+	
+	<bean id="helloworld" class="support.training.spring.Helloworld">
+	<property name="name" value="Madhavi"></property>
+	<property name="greets" ref="g2"></property>
+	</bean>
+	
+	<bean id="g" class="support.training.spring.Greeting">
+    <property name="message" value="Happy new year"></property>
+    </bean>
+    <bean id="g1" class="support.training.spring.Greeting">
+    <property name="message" value="Merry Christmas"></property>
+    </bean>
+    <bean id="g2" class="support.training.spring.Greeting">
+    <property name="message" value="Happy Ugadi"></property>
+    </bean>
+    
+	
+    <bean id="plist" class="support.training.spring.PList">
+	<property name="PA" ref="project1"></property>
+	<property name="PB" ref="project2"></property>
+	</bean>
+	
+	<bean id="project1" class="support.training.spring.Project">
+	    <property name="pname" value="First Project"></property>
+	    <property name="pduration" value="6"></property>
+	</bean>
+	
 	<bean id="constructorMessage" class="support.training.spring.ConstructorMessage">
 		<constructor-arg name="message" value="Hello World"></constructor-arg>
 	</bean>
@@ -27,15 +53,7 @@
 	  <constructor-arg name="cname" value="section A"></constructor-arg>
 	</bean>
 	
-	<bean id="plist" class="support.training.spring.PList">
-	<property name="PA" ref="project1"></property>
-	<property name="PB" ref="project2"></property>
-	</bean>
-	
-	<bean id="project1" class="support.training.spring.Project">
-	    <property name="pname" value="First Project"></property>
-	    <property name="pduration" value="6"></property>
-	</bean>
+
 	
 	<bean id="project2" class="support.training.spring.Project">
 	<property name="pname" value="Second Project"></property>

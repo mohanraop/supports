@@ -12,6 +12,11 @@ public class Register {
 		student.result();
 		PList plist=(PList) context.getBean("plist");
 		plist.values();
+
+	
+	Helloworld helloworld=(Helloworld) context.getBean("helloworld");
+		helloworld.hello();
+		
 	}
 
 }
