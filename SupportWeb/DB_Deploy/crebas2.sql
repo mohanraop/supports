@@ -1,5 +1,6 @@
 
 
+
 drop table if exists dbeqp.SUP_PAYMENT;
 
 drop table if exists dbeqp.SUP_ACCOUNT;
