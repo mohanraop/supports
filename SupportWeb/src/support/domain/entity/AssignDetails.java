@@ -4,8 +4,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -16,12 +19,18 @@ public class AssignDetails {
 	@GeneratedValue(generator = "idGenerator")
 	@Column(name = "SUP_ASSIGN_ID")
 	private String id;
+	
+	@OneToOne(fetch = FetchType.EAGER )
+	 @JoinColumn(
+		        name="TRAINER_ID", unique=true, nullable=false, updatable=false)
+	private ContactDetail trainer;
+	
+	@OneToOne(fetch = FetchType.EAGER )
+	 @JoinColumn(
+		        name="TRAINEE_ID", unique=true, nullable=false, updatable=false)
+	private ContactDetail trainee;
+	
 
-	@Column(name = "TRAINER_ID")
-	private Integer trainerId;
-
-	@Column(name = "TRAINEE_ID")
-	private Integer traineeId;
 
 	@Column(name = "START_DT")
 	private Date startDate;
@@ -53,34 +62,6 @@ public class AssignDetails {
 	 */
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	/**
-	 * @return the trainerId
-	 */
-	public Integer getTrainerId() {
-		return trainerId;
-	}
-
-	/**
-	 * @param trainerId the trainerId to set
-	 */
-	public void setTrainerId(Integer trainerId) {
-		this.trainerId = trainerId;
-	}
-
-	/**
-	 * @return the traineeId
-	 */
-	public Integer getTraineeId() {
-		return traineeId;
-	}
-
-	/**
-	 * @param traineeId the traineeId to set
-	 */
-	public void setTraineeId(Integer traineeId) {
-		this.traineeId = traineeId;
 	}
 
 	/**
@@ -167,4 +148,20 @@ public class AssignDetails {
 		this.updateDateTime = updateDateTime;
 	}
 
+
+	public ContactDetail getTrainer() {
+		return trainer;
+	}
+
+	public void setTrainer(ContactDetail trainer) {
+		this.trainer = trainer;
+	}
+
+	public ContactDetail getTrainee() {
+		return trainee;
+	}
+
+	public void setTrainee(ContactDetail trainee) {
+		this.trainee = trainee;
+	}
 }

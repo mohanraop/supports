@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import support.domain.entity.AssignDetails;
 import support.domain.entity.ContactDetail;
+import support.service.AssignService;
 import support.service.ContactService;
 
 @Component("memberAssignBean")
@@ -21,7 +22,6 @@ public class MemberAssignBean extends AbstractManagedBean  {
 	private static final long serialVersionUID = -5650490585039961293L;
 	
 	private String status;
-	
 
 	private String supportType;
 	
@@ -38,7 +38,8 @@ public class MemberAssignBean extends AbstractManagedBean  {
 	@Resource(name="contactService")
 	private ContactService contactService;
 
-	
+	@Resource(name="assignService")
+	private AssignService assignService;
 
 	public Collection<SelectItem> getTrainers(){
 		Collection<SelectItem> selectItems = new ArrayList<SelectItem>();
@@ -60,10 +61,16 @@ public class MemberAssignBean extends AbstractManagedBean  {
 	
 	public void saveAssign() {
 		AssignDetails assignDetails = new AssignDetails();
-		if(getTraineeId()>0)
-			assignDetails.setTraineeId(getTraineeId());
-		if(getTrainerId()>0)
-			assignDetails.setTrainerId(getTrainerId());
+		ContactDetail trainee =  new ContactDetail();
+		ContactDetail trainer =  new ContactDetail();
+		if(getTraineeId()>0){
+			trainee.setId(getTraineeId().toString());
+			assignDetails.setTrainee(trainee);
+		}
+		if(getTrainerId()>0){
+			trainer.setId(getTrainerId().toString());
+			assignDetails.setTrainer(trainer);
+		}
 		if(getStartDate()!=null)
 			assignDetails.setStartDate(getStartDate());
 		if(getEndDate()!=null)
@@ -73,9 +80,13 @@ public class MemberAssignBean extends AbstractManagedBean  {
 		if(getStatus()!=null && getStatus().trim().length()>0)
 			assignDetails.setStatus(getStatus());
 		assignDetails.setCreateDateTime(new Date());
-		contactService.saveAssignment(assignDetails);
+		assignService.create(assignDetails);
         addInfoMessage("Assignment  was successfully created.");
 		readOnly=true;
+	}
+	
+	public List<AssignDetails> getAssignDetails(){
+		return assignService.findAll();		
 	}
 	
 

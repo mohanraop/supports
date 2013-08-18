@@ -38,6 +38,12 @@ public class MemberCreationTerminationBean extends AbstractManagedBean {
 		contactDetail.setMemType(getSelectedMemberType());
 		contactDetail.setName(getMemName());
 		contactDetail.setJoiningDateTime(getJoiningDate());
+		contactDetail.setGmailID(getGmailId());
+		contactDetail.setSkypeID(getSkypeId());
+		contactDetail.setMobileNum(getMobileNum());
+		contactDetail.setLocation(getAddress());
+		contactDetail.setCreateDateTime(new Date());
+		contactDetail.setUpdateDateTime(new Date());
 		contactService.create(contactDetail);
         addInfoMessage("Member : " +getMemName() + " was successfully created.");
 		readOnly=true;

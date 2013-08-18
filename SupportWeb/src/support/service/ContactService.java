@@ -2,7 +2,6 @@ package support.service;
 
 import java.util.List;
 
-import support.domain.entity.AssignDetails;
 import support.domain.entity.ContactDetail;
 
 
@@ -21,5 +20,4 @@ public interface ContactService {
 	
 	List<ContactDetail> findAll();
 
-	void saveAssignment(AssignDetails assignDetails);
 }

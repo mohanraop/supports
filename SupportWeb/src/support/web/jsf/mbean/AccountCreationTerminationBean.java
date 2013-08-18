@@ -1,6 +1,7 @@
 package support.web.jsf.mbean;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -59,6 +60,10 @@ public class AccountCreationTerminationBean extends AbstractManagedBean {
 
 		accountDetails.setCreateDateTime(new Date());
 		
+	}
+	
+	public List<AccountDetails> getAccountDetails(){
+		return accountService.findAll();
 		
 	}
 

@@ -18,11 +18,10 @@ import support.domain.entity.ContactDetail;
 @Service("contactService")
 @Transactional
 public class ContactServiceImpl implements ContactService {
+	
 	@Resource(name = "contactDao")
 	private ContactDao contactDao;
 	
-	@Resource(name = "assignDao")
-	private AssignDao assignDao; 
 
 	@Override
 	public char calculateCheckDigit(String containerNumber) {
@@ -60,11 +59,6 @@ public class ContactServiceImpl implements ContactService {
 		return contactDao.findBy(propertyNameValue);
 	}
 	
-	@Override
-	public void saveAssignment(AssignDetails assignDetails) {
-		assignDao.save(assignDetails);
-	}
-
 	@Override
 	public List<ContactDetail> findAll() {
 		return contactDao.findAll();
