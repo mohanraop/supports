@@ -13,8 +13,7 @@ public class ArrayExm {
 		arr[1]=20;
 		arr[2]=10;
 		arr[3]=5;
-		arr[4]=2;
-		
+		arr[4]=2;	
 		
 		System.out.println(arr[3]);
 		
