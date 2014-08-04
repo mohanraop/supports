@@ -1,3 +1,4 @@
+package com.exp.cn.core;
 public class Example1 {
 
 	/**

@@ -1,3 +1,4 @@
+package com.exp.cn.core;
 public class ReportMain {
 	public static void main(String[] args) {
 		Report report = new Report();

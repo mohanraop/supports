@@ -1,3 +1,4 @@
+package com.exp.cn.core;
 public class Report {
 	String subject;
 	int marks;
