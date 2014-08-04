@@ -13,3 +13,13 @@ public class InnovaCar extends CarDesign{
 		this.price=price+3000;
 	}
 }
+
+class A extends InnovaCar{
+	
+}
+class B extends A{
+	
+}
+class c extends B{
+	
+}

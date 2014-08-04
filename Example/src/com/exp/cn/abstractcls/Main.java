@@ -13,6 +13,7 @@ public class Main {
 		
 		System.out.println(ic.getPrice());
 		System.out.println(ic.getEngine());
+		System.out.println(ic.getcModelNum());
 
 	}
 }
