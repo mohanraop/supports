@@ -150,23 +150,49 @@ public class JDBCProgram {
 	JOptionPane.showMessageDialog(null,"Data Updated into Employees Table");
 	}
 
-	public static Connection getConnection() {
+
+	public static Connection getOrcleConnection() {
+
 		try {
-			Class.forName("com.mysql.jdbc.Driver");	
-			System.out.println("1.Driver is loaded");
-		} catch(java.lang.ClassNotFoundException e) {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			System.out.println("1.Driver in get connection loaded");
+		} catch (java.lang.ClassNotFoundException e) {
 			System.err.print("com.mysql.jdbc.Driver");
 			System.err.println(e.getMessage());
 		}
-		
-		 try {
-			   con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbeqp", "root", "root");
-			   System.out.println("2.Connection established");
-			} catch(SQLException ex) {
-				System.err.println("SQLException: " + ex.getMessage());
-			}
+		try {
+			con = DriverManager.getConnection(
+					"jdbc:oracle:thin:@localhost:1521:xe", "amarpatlolla",
+					"amar01");
+			System.out.println("2.Connection of get connection established");
+		} catch (SQLException ex) {
+			System.err.println("SQLException: " + ex.getMessage());
+		}
 
 		return con;
+	}
+
+	public static Connection getConnection() {
+		return getOrcleConnection();
+		/*
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("1.Driver in get connection loaded");
+		} catch (java.lang.ClassNotFoundException e) {
+			System.err.print("com.mysql.jdbc.Driver");
+			System.err.println(e.getMessage());
+		}
+
+		try {
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/dbeqp", "root", "root");
+			System.out.println("2.Connection of get connection established");
+		} catch (SQLException ex) {
+			System.err.println("SQLException: " + ex.getMessage());
+		}
+
+		return con;
+		*/
 	}
 
 	/*

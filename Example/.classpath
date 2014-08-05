@@ -84,5 +84,6 @@
 	<classpathentry kind="lib" path="/lib/urlrewritefilter-3.1.0.jar"/>
 	<classpathentry kind="lib" path="/lib/webserviceutils.jar"/>
 	<classpathentry kind="lib" path="/lib/wsdl4j.jar"/>
+	<classpathentry kind="lib" path="/lib/ojdbc5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

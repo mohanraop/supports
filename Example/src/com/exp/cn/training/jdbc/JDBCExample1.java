@@ -30,6 +30,25 @@ public class JDBCExample1 {
 			return connect;
 		}
 	
+	 public static Connection createOrcleConnection() {
+		 
+			
+			try {
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				System.out.println("1.Driver in get connection loaded");
+			} catch(java.lang.ClassNotFoundException e) {
+				System.err.print("com.mysql.jdbc.Driver");
+				System.err.println(e.getMessage());
+			}
+			 try {
+				 Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","amarpatlolla","amar01");
+				   System.out.println("2.Connection of get connection established");
+				} catch(SQLException ex) {
+					System.err.println("SQLException: " + ex.getMessage());
+				}
+
+			return connect;
+		}
 	
 	
 	public void Section(){
