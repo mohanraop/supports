@@ -121,6 +121,9 @@ public class JDBCsample {
 
 		try {
 			stmt = con.createStatement();
+			for(int i=0;i<20;i++){
+				stmt.executeUpdate("insert into Projects1 values(2656, 'Bhanu"+i+"')");
+			}
 			stmt.executeUpdate(insertString1);
 			stmt.executeUpdate(insertString2);
 
