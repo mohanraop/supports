@@ -3,16 +3,21 @@
  */
 package com.exp.cn.exc;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author Amar
  * 
  */
 public class Excep {
+	static Logger log = Logger.getLogger(Excep.class.getName());
 
 	public void m1() throws Exception {
 		System.out.println("m1-begin");
+		log.info("m1-begin");
 		m2();
 		System.out.println("m1-end");
+		log.info("m1-end");
 	}
 
 	/**
@@ -27,6 +32,7 @@ public class Excep {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			log.error(e);
 		}
 
 		// throw
