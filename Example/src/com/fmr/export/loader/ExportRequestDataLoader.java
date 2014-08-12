@@ -29,7 +29,7 @@ public class ExportRequestDataLoader {
 	static final String dataSepartor="|";
 	static long clientID;
 	static long currFileLineCnt;
-	static String IN_PROGRESS_STATUS="IN_PROGRESS";
+	static String IN_PROGRESS_STATUS="INPROGRESS";
 	static String COMPLETED_STATUS="COMPLETED";
 	
 	public static ExportWorkItemObj splitDataRecord(String pString)

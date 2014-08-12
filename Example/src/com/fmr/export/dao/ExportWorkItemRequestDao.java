@@ -76,27 +76,57 @@ public class ExportWorkItemRequestDao {
 	
 	public void insertExportWorkItem(Connection pConnection,
 			List<ExportWorkItemObj> exportWorkItemObjs) throws Exception {
-		
-		  
-		OracleCallableStatement cStmt = null;
+		CallableStatement cStmt = null;
 		try {
+			pConnection.setAutoCommit(false);
+			ArrayDescriptor oracleVarchar2Collection =  ArrayDescriptor.createDescriptor("VARCHAR2_T",pConnection);
+			ArrayDescriptor oracleNumberCollection =ArrayDescriptor.createDescriptor("NUMBER_T",pConnection);
+			int size= exportWorkItemObjs.size();
+			double[] client_Id=new double[size];
+			double[] request_Id=new double[size];
+			String[] workItem_Id=new String[size];
+			double[] fims_id=new double[size];
+			String[] clip_id=new String[size];
+			String[] repository_cd=new String[size];
+			String[] status=new String[size];
+			int i=0;
+			  for(ExportWorkItemObj itemObj:exportWorkItemObjs){
+				  client_Id[i]=itemObj.getClient_Id(); 
+				  request_Id[i]=itemObj.getRequest_Id();
+				  workItem_Id[i]=itemObj.getWorkItem_Id();
+				  fims_id[i]=itemObj.getFims_id();
+				  clip_id[i]=itemObj.getClip_id();
+				  repository_cd[i]=itemObj.getRepository_cd();
+				  status[i]=itemObj.getStatus();
+				  i++;
+			  }
 			
-			BasicDataSource bds = new BasicDataSource();  
-			bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");  
-			bds.setUsername(dbUser);  
-			bds.setPassword(dbPassword);  
-			bds.setUrl(connURL);  
-			bds.setAccessToUnderlyingConnectionAllowed(true);  
-			pConnection = bds.getConnection();  
-			Connection dconn = ((DelegatingConnection)pConnection).getInnermostDelegate(); 
-			ArrayDescriptor descriptor = ArrayDescriptor.createDescriptor( "EXPORT_WORKITEMS_TAB", dconn );
-			ARRAY array_to_pass = new ARRAY( descriptor, dconn,  exportWorkItemObjs.get(1));
-			cStmt =(OracleCallableStatement)dconn.prepareCall("begin PKG_Export_requestDetails.insertExportWorkItem(:1); end;");
-			cStmt.setARRAY( 1, array_to_pass );  
+			cStmt = pConnection.prepareCall("{call PKG_Export_requestDetails.insertExportWorkItem(?,?,?,?,?,?,?)}");
+			
+			// Cast the Java arrays into Oracle arrays
+	        ARRAY ora_client_Id = new ARRAY (oracleNumberCollection,   pConnection, client_Id);
+	        ARRAY ora_request_Id    = new ARRAY (oracleNumberCollection, pConnection, request_Id);
+	        ARRAY ora_workItem_Id   = new ARRAY (oracleVarchar2Collection, pConnection, workItem_Id);
+	        ARRAY ora_fims_id    = new ARRAY (oracleNumberCollection, pConnection, fims_id);
+	        ARRAY ora_clip_id   = new ARRAY (oracleVarchar2Collection, pConnection, clip_id);
+	        ARRAY ora_repository_cd   = new ARRAY (oracleVarchar2Collection, pConnection, repository_cd);
+	        ARRAY ora_status   = new ARRAY (oracleVarchar2Collection, pConnection, status);
+
+	        // Bind the input arrays.
+	        cStmt.setObject(1, ora_client_Id);
+	        cStmt.setObject(2, ora_request_Id);
+	        cStmt.setObject(3, ora_workItem_Id);
+	        cStmt.setObject(4, ora_fims_id);
+	        cStmt.setObject(5, ora_clip_id);
+	        cStmt.setObject(6, ora_repository_cd);
+	        cStmt.setObject(7, ora_status);
 			cStmt.execute(); 
 			pConnection.commit();
-			// Passing an array to the procedure - 
-	            
+			/*ArrayDescriptor descriptor = ArrayDescriptor.createDescriptor( "EXPORT_WORKITEMS_TYPE", pConnection );
+			ARRAY array_to_pass = new ARRAY( descriptor, pConnection, (Object[]) exportWorkItemObjs.toArray());
+			cStmt = pConnection.prepareCall("{call PKG_Export_requestDetails.insertExportWorkItem(?)}");
+			cStmt.setArray( 1, array_to_pass ); */ 
+
 		} catch (Exception se) {
 			se.printStackTrace();
 			log.error(se.getMessage());
