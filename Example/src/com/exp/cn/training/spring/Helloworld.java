@@ -3,6 +3,7 @@ package com.exp.cn.training.spring;
 public class Helloworld {
  public Greeting greets;
  public String name;
+ 
 
 public Greeting getGreets() {
 	return greets;
