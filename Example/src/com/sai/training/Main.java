@@ -13,7 +13,7 @@ public class Main {
 		e.setEmpId(21);
 		System.out.println(e.getEmpName());
 		System.out.println(e.getEmpId());
-		
+		System.out.println(e.getEmpId());
 	}
 
 }
