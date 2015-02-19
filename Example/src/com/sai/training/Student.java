@@ -19,5 +19,6 @@ public class Student
 	public void fullName()
 	{
 		System.out.println("Full name is: " +firstName+ " " +lastName);
+    System.out.println("Full name is: " +firstName+ " " +lastName);  
 	}
 }
