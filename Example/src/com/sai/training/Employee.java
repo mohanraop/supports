@@ -1,6 +1,6 @@
 package com.sai.training;
 
-public class Employee 
+public class Employee implements LivelyThings
 {
 	String empName;
 	int empId;
@@ -15,6 +15,16 @@ public class Employee
 	}
 	public void setEmpId(int empId) {
 		this.empId = empId;
+	}
+	@Override
+	public String giveYourName() {
+		// TODO Auto-generated method stub
+		return empName;
+	}
+	@Override
+	public int giveYourAge() {
+		// TODO Auto-generated method stub
+		return 35;
 	}
 	
 
