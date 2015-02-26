@@ -1,4 +1,6 @@
-package com.sai.training;
+package com.sai.training.staticEx;
+
+import com.sai.training.core.Person;
 
 public class StaticClass {
  int i;

@@ -1,4 +1,5 @@
-package com.sai.training;
+package com.sai.training.staticEx;
+
 
 public class MainStatic {
 

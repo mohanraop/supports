@@ -1,6 +1,6 @@
-package com.sai.training;
+package com.sai.training.util;
 
-public class MainArea {
+public class MainArray {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -1,4 +1,4 @@
-package com.sai.training;
+package com.sai.training.core;
 
 public class Main {
 
