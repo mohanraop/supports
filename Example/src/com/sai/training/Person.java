@@ -16,6 +16,9 @@ public class Person
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
+		
+	public void printLn(){
+		System.out.println("hi");
+	}
 
 }
