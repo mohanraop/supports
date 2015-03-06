@@ -72,8 +72,8 @@ public class JDBCsample {
 	}
 
 	public static Connection getConnection() {
-		return getOrcleConnection();
-		/*
+		//return getOrcleConnection();
+		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			System.out.println("1.Driver in get connection loaded");
@@ -84,14 +84,14 @@ public class JDBCsample {
 
 		try {
 			con = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/dbeqp", "root", "root");
+					"jdbc:mysql://localhost:3306/sai", "root", "");
 			System.out.println("2.Connection of get connection established");
 		} catch (SQLException ex) {
 			System.err.println("SQLException: " + ex.getMessage());
 		}
 
 		return con;
-		*/
+		
 	}
 
 	public static void createProjects1() {

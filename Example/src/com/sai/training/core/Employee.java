@@ -4,9 +4,19 @@ import java.util.Calendar;
 
 public class Employee implements LivelyThings
 {
+	public Employee(String empName, int empId, int birthYear) {
+		super();
+		this.empName = empName;
+		this.empId = empId;
+		this.birthYear = birthYear;
+	}
+	public Employee(){
+		
+	}
 	String empName;
 	int empId;
 	int birthYear;
+	
 	public String getEmpName() {
 		return empName;
 	}
