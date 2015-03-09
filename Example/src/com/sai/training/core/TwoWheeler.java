@@ -17,6 +17,7 @@ public class TwoWheeler extends Vehicle
 		this.name = name;
 	}
 	
+	@Override
 	public long getCost() {
 	return cost+100;
     }
