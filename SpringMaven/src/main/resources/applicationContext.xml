@@ -9,5 +9,5 @@ xmlns:context="http://www.springframework.org/schema/context"
 						   
 						   
   <import resource="employeeContext.xml"/>
-  <import resource="hibernateContext.xml"/>
+    <import resource="hibernateContext.xml"/> 
 </beans>
