@@ -10,7 +10,6 @@
 		<action path="/hello" type="com.spring.action.HelloWorldAction" name="helloForm">
 			<forward name="hello" path="/Hello.jsp"></forward>
 		</action>
-		
 	</action-mappings>
 </struts-config>
 
