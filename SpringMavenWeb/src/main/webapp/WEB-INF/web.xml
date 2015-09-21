@@ -2,7 +2,6 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>Spring Maven Demo</display-name>
-  
   <servlet>
   	<servlet-name>example</servlet-name>
   	<servlet-class>com.spring.web.ExampleServlet</servlet-class>
@@ -11,7 +10,6 @@
   	<servlet-name>example</servlet-name>
   	<url-pattern>/example123</url-pattern>
   </servlet-mapping>
-  
   <!-- Struts  -->
   <servlet>
   	<servlet-name>struts</servlet-name>
