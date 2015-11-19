@@ -1,0 +1,34 @@
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<ui:define name="title">Course Creation</ui:define>
+	<ui:define name="content">
+		<h:form id="courseCreation">
+			<p:messages id="messages" showDetail="true" showSummary="false"  />
+			<h:outputLabel value="Course Creation"  style="font-weight:bold;color:red"/>
+			<h:panelGrid columns="2" width="95%" border="1">
+				<h:panelGroup>
+					<h:panelGrid columns="4" >
+						<h:outputLabel value="Course Name:" />
+						<p:inputText id="courseName" value="#{courseDetailsCTBean.courseNam}" size="50" required="true"  readonly="#{courseDetailsCTBean.readOnly}"/>
+						
+						<h:outputLabel value="Course Details:" />
+						<p:inputTextarea rows="6" cols="33"   value="#{courseDetailsCTBean.courseDtls}"  required="true" readonly="#{courseDetailsCTBean.readOnly}"/>
+						
+						<h:outputLabel value="Course Duration:" />
+						<p:inputText id="courseDur" value="#{courseDetailsCTBean.courseDur}" size="50" required="true" readonly="#{courseDetailsCTBean.readOnly}"/>
+						
+						<h:outputLabel value="Course Amount:" />
+						<p:inputText id="courseAmt" value="#{courseDetailsCTBean.courseAmt}" size="50" required="true" readonly="#{courseDetailsCTBean.readOnly}"/>
+					
+					</h:panelGrid>
+				</h:panelGroup>
+
+			</h:panelGrid>
+			<p:commandButton value="Save" action="#{courseDetailsCTBean.saveCreation}" disabled="#{courseDetailsCTBean.readOnly}"
+				update="messages" />
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,56 @@
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<ui:define name="title">Member Assign</ui:define>
+	<ui:define name="content">
+		<h:form id="memberCreation">
+		 <p:growl id="msg" /> 
+			<p:messages id="messages" showDetail="true" showSummary="false"  />
+			<h:outputLabel value="Member Creation"  style="font-weight:bold;color:red"/>
+			<h:panelGrid columns="2" width="95%" border="1">
+				<h:panelGroup>
+					<h:panelGrid columns="4" >
+						<h:outputLabel value="Traner:" />
+						 <p:selectOneMenu value="#{memberAssignBean.trainerId}" required="true" rendered="#{!memberAssignBean.readOnly}">
+        					<f:selectItems value="#{memberAssignBean.trainers}" var="_eventType" itemLabel="#{_eventType.name}"
+         							     itemValue="#{_eventType.id}" />
+        				  </p:selectOneMenu>
+						<h:outputLabel value="Tranee:" />
+						 <p:selectOneMenu value="#{memberAssignBean.traineeId}" required="true" rendered="#{!memberAssignBean.readOnly}">
+        					<f:selectItems value="#{memberAssignBean.trainees}" var="_eventType" itemLabel="#{_eventType.name}"
+         							     itemValue="#{_eventType.id}" />
+        				  </p:selectOneMenu>
+						
+						<h:outputLabel value="Active/Non Active:" />
+						<p:selectOneMenu value="#{memberAssignBean.status}" id="status" required="true" rendered="#{!memberAssignBean.readOnly}">
+							<f:selectItem noSelectionOption="true" itemLabel="-" />
+							<f:selectItem itemLabel="Active" itemValue="Active" />
+							<f:selectItem itemLabel="Non Active" itemValue="Non Active" />
+						</p:selectOneMenu>
+						<h:outputLabel value="Support Type:" />
+						<p:selectOneMenu value="#{memberAssignBean.supportType}" id="supportType" required="true" rendered="#{!memberAssignBean.readOnly}">
+							<f:selectItem noSelectionOption="true" itemLabel="-" />
+							<f:selectItem itemLabel="Training" itemValue="Training" />
+							<f:selectItem itemLabel="Technical Support" itemValue="Technical Support" />
+						</p:selectOneMenu>
+						
+						<h:outputLabel value="Start Date:" />
+						<p:calendar id="startDate" widget="startDate"
+							value="#{memberAssignBean.startDate}"
+							pattern="MM/dd/yyyy HH:mm" required="true" readonly="#{memberAssignBean.readOnly}" />
+						<h:outputLabel value="End Date:" />
+						<p:calendar id="endDate" widget="endDate"
+							value="#{memberAssignBean.endDate}"
+							pattern="MM/dd/yyyy HH:mm" required="true" readonly="#{memberAssignBean.readOnly}" />
+					</h:panelGrid>
+				</h:panelGroup>
+
+			</h:panelGrid>
+			<p:commandButton value="Assign" action="#{memberAssignBean.saveAssign}" disabled="#{memberAssignBean.readOnly}"
+				update="messages" />
+				
+		</h:form>
+	</ui:define>
+</ui:composition>

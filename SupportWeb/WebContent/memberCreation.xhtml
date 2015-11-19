@@ -1,0 +1,49 @@
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<ui:define name="title">Member Creation</ui:define>
+	<ui:define name="content">
+		<h:form id="memberCreation">
+			<p:messages id="messages" showDetail="true" showSummary="false"  />
+			<h:outputLabel value="Member Creation"  style="font-weight:bold;color:red"/>
+			<h:panelGrid columns="2" width="95%" border="1">
+				<h:panelGroup>
+					<h:panelGrid columns="4" >
+						<h:outputLabel value="Member Type:" />
+						<p:selectOneMenu value="#{memberCTBean.selectedMemberType}" id="MemberType" required="true" rendered="#{!memberCTBean.readOnly}">
+							<f:selectItem noSelectionOption="true" itemLabel="-" />
+							<f:selectItem itemLabel="Trainee" itemValue="Trainee" />
+							<f:selectItem itemLabel="Trainer" itemValue="Trainer" />
+						</p:selectOneMenu>
+						<h:outputLabel value="Member Name:" />
+						<p:inputText id="memName" value="#{memberCTBean.memName}" size="50" required="true"  readonly="#{memberCTBean.readOnly}"/>
+						
+						<h:outputLabel value="Mobile Num:" />
+						<p:inputText id="mobileNum" value="#{memberCTBean.mobileNum}" size="50" readonly="#{memberCTBean.readOnly}"/>
+						
+						<h:outputLabel value="Gmail Id:" />
+						<p:inputText id="gmailId" value="#{memberCTBean.gmailId}" size="50" readonly="#{memberCTBean.readOnly}"/>
+						
+						<h:outputLabel value="Skype Id:" />
+						<p:inputText id="skypeId" value="#{memberCTBean.skypeId}" size="50" readonly="#{memberCTBean.readOnly}"/>
+						
+						<h:outputLabel value="Address:" />
+						<p:inputTextarea rows="6" cols="33"   value="#{memberCTBean.address}"  readonly="#{memberCTBean.readOnly}"/>
+						
+						<h:outputLabel value="Refered By:" />
+						<p:inputText id="reference" value="#{memberCTBean.reference}" readonly="#{memberCTBean.readOnly}"/>
+						<h:outputLabel value="Join Date:" />
+						<p:calendar id="joiningDate" widget="joiningDate"
+							value="#{memberCTBean.joiningDate}"
+							pattern="MM/dd/yyyy HH:mm" required="true" readonly="#{memberCTBean.readOnly}" />
+					</h:panelGrid>
+				</h:panelGroup>
+
+			</h:panelGrid>
+			<p:commandButton value="Save" action="#{memberCTBean.saveCreation}" disabled="#{memberCTBean.readOnly}"
+				update="messages" />
+		</h:form>
+	</ui:define>
+</ui:composition>

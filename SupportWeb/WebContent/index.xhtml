@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+  <h:head>
+    <title>Support System</title>
+    <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/defaultStyle.css" />
+  </h:head>
+  <h:body>
+    <p:layout id="layout" fullPage="true">
+      <p:layoutUnit position="north" resizable="true" size="60" minSize="40" maxSize="80">
+        <h:outputText  value="Support"></h:outputText>
+        <br />
+        Welcome <h:outputText style="font-weight:bold" value="#{request.userPrincipal.name}" />
+        <a href="j_spring_security_logout">Logout</a>
+      </p:layoutUnit>
+
+      <p:layoutUnit position="west" resizable="true" minSize="120" maxSize="165">
+        <h:form>
+          <p:menu>
+            <p:submenu label="MEMBER">
+              <p:menuitem value="Member Creation" target="main" url="memberCreation.xhtml"/>
+              <p:menuitem value="Member Search" target="main" url="memberEnquiry.xhtml"/>
+              <p:menuitem value="Update Member Details" target="main" url="hierarchyEnquiry.xhtml"/>
+              <p:menuitem value="Undo" target="main"/>
+            </p:submenu>
+             <p:submenu label="Course">
+              <p:menuitem value="Course Creation" target="main" url="CourseCreation.xhtml"/>
+              <p:menuitem value="Course Search" target="main" url="CourseDetailsEnquiry.xhtml"/>
+              <p:menuitem value="Undo" target="main"/>
+            </p:submenu>
+            
+            <p:submenu label="ASSIGNMENT">
+              <p:menuitem value="Assign Member" target="main" url="memberAssign.xhtml"/>
+              <p:menuitem value="Assign Member Search" target="main" url="memberAssignEnquiry.xhtml"/>
+              <p:menuitem value="Update Assign Member" target="main" url="hierarchyEnquiry.xhtml"/>
+              <p:menuitem value="Undo" target="main"/>
+            </p:submenu>
+            
+            <p:submenu label="Account">
+              <p:menuitem value="Account Creation" target="main" url="accountCreation.xhtml"/>
+              <p:menuitem value="Account Search" target="main" url="accountEnquiry.xhtml"/>
+              <p:menuitem value="Undo" target="main"/>
+            </p:submenu>
+            
+            <p:submenu label="Payment">
+              <p:menuitem value="Member Payment" target="main" url="memberPayment.xhtml"/>
+              <p:menuitem value="Member Payment Search" target="main" url="accountEnquiry.xhtml"/>
+              <p:menuitem value="Account Transaction" target="main" url="hierarchyEnquiry.xhtml"/>
+              <p:menuitem value="Undo" target="main"/>
+            </p:submenu>
+          </p:menu>
+        </h:form>
+      </p:layoutUnit>
+      <p:layoutUnit position="center">
+        <iframe name="main" src="#" width="100%" frameborder="0" height="90%" />
+      </p:layoutUnit>
+    </p:layout>
+  </h:body>
+</f:view>
+</html>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.ws.train.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.ws.train.com" xmlns:intf="http://service.ws.train.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.ws.train.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="insertShare">
+    <complexType>
+     <sequence>
+      <element name="shareName" type="xsd:string"/>
+      <element name="sharePrice" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertShareResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="insertShareResponse">
+
+      <wsdl:part element="impl:insertShareResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertShareRequest">
+
+      <wsdl:part element="impl:insertShare" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ShareInfromation">
+
+      <wsdl:operation name="insertShare">
+
+         <wsdl:input message="impl:insertShareRequest" name="insertShareRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertShareResponse" name="insertShareResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ShareInfromationSoapBinding" type="impl:ShareInfromation">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="insertShare">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertShareRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertShareResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ShareInfromationService">
+
+      <wsdl:port binding="impl:ShareInfromationSoapBinding" name="ShareInfromation">
+
+         <wsdlsoap:address location="http://localhost:8080/ShareTradingSystem/services/ShareInfromation"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
